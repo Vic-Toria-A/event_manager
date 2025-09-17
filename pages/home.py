@@ -1,0 +1,101 @@
+from nicegui import ui
+
+from components.navbar import show_navbar
+from components.footer import show_footer
+
+@ui.page("/")
+def show_home_page():
+    # ui.query(".nicegui-content").classes('m-0 p-0 gap-0')
+    show_navbar()
+    with ui.element("div").style("background-image:url(assets/hero.jpg) ").classes("h-full w-full flex flex-col bg-no-repeat bg-cover bg-center"):
+
+        with ui.column().classes("items center h-[30rem] flex flex-col justify-center self-center text-center"):
+            ui.label("Made For Those").classes("text-bold items-center self-center text-white uppercase").style("font-size:4rem;")
+            ui.label("Who Do").classes("text-bold items-center self-center text-white uppercase").style("font-size: 4rem;")
+
+    
+
+    with ui.row().classes("bg-blue-800 p-4 no-gap items-center justify-center w-[90rem] -mt-10 self-center rounded").style("border-radius:10px;"):
+        with ui.column():
+            ui.label("Looking for").classes("text-white text-semi-bold")
+            ui.select([1,2,3]).classes("w-60 bg-white").props("outlined")
+
+        with ui.column():
+            ui.label("Location").classes("text-white text-semi-bold")
+            ui.select([1,2,3]).classes("w-60 bg-white").props("outlined")
+        
+        with ui.column():
+           ui.label("when").classes("text-white text-semi-bold")
+           choose=ui.select([1,2,3]).classes("w-60 bg-white").props("outlined")
+        
+    with ui.row().classes('w-full px-20 py-20 justify-between flex flex-row items-center'):
+            with ui.row():      
+                ui.label("Upcoming").classes('text-bold text-4xl')
+                ui.label("Events").classes('text-bold text-blue text-4xl')
+            
+            with ui.row().classes("justify-end p-4 gap-x-5 items-end").style("padding-right:100px"):
+                ui.select(["Weekdays"]).classes("w-48 h-10 bg-white").props("outlined")
+                ui.select(["Event type"]).classes("w-48  h-10 bg-white").props("outlined")
+                ui.select(["Any Category"]).classes("w-48  h-10 bg-white").props("outlined")
+        
+    with ui.grid(columns=3).classes("w-full ml-10 "):
+        for i in range(6):
+            with ui.card().classes("w-[25rem] h-[25rem]"):
+                ui.label("event title")
+                ui.image("/assets/home.jpg")
+
+                ui.label("Bestseller Book Bootcamp-write, Market & Publish your books-Lucknow").classes('text-bold text-2xl')
+                ui.label("Sunday 16 November").classes("text-blue")
+                ui.label("online-event: join anywhere").classes('text-gray-700')
+
+    with ui.column().classes("items center self-center"):
+        ui.button("Load More.....").classes("w-full items-center mt-5 justify-center")    
+
+    with ui.column().classes("bg-[#03045e] w-full h-[300px] mt-10 gap-10"):
+
+        with ui.grid(columns=2).classes(""):
+            with ui.column().classes():
+                ui.image("assets/ontop.png").classes("overflow-y-visible w-[40rem]  mb-0")
+
+            with ui.column().classes("gap-10 items-center mt-20"):
+                ui.label("Make Your Own Event").classes("text-white text-bold text-4xl")
+                ui.label("create your own exprience,start from here").classes("text-white text-xl")
+                ui.button("Create Events").classes("bg-[#0077b6] text-white text-bold")
+
+    ui.image("assets/brand.png")       
+
+#font awesome
+    with ui.row().classes(' mt-10 '):
+            ui.label("Trending").classes('text-bold text-4xl')
+            ui.label("Colleges").classes('text-bold text-blue text-3xl')
+
+    with ui.grid(columns=3).classes("w-full "):
+        for i in range(3):
+            with ui.card().classes("w-[30rem] h-[25rem]"):
+                ui.image("assets/home.jpg")
+
+                ui.label("Stanford University").classes('text-bold text-2xl')
+                ui.label("Stanford califonia").classes("text-xl")
+    with ui.column().classes("items center self-center"):
+        ui.button("Load More.....").classes("self center items-center mt-5 justify-center")
+
+    with ui.row().classes(' mt-10 '):
+            ui.label("Our").classes('text-bold text-4xl')
+            ui.label("Blogs").classes('text-bold text-blue text-3xl')
+
+    with ui.grid(columns=3).classes("w-full mb-50"):
+        for i in range(3):
+            with ui.card().classes("w-[30rem] h-[25rem]"):
+                ui.image("assets/home.jpg")
+
+                ui.label("Bestseller Book Bootcamp-write, Market & Publish your books-Lucknow").classes('text-bold text-2xl')
+                ui.label("Sunday 16 November").classes("text-blue")
+                ui.label("online-event: join anywhere").classes('text-gray-700')
+
+            
+                
+    
+
+
+
+    show_footer ()  
